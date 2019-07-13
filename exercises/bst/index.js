@@ -33,17 +33,7 @@ class Node {
       this.right = new Node(data);
     }
   }
-  contains(data) {
-    if (this.data === data) {
-      return this;
-    } else if (data < this.data && this.left) {
-      return this.left.contains(data);
-    } else if (data > this.data && this.right) {
-      return this.right.contains(data);
-    } else {
-      return null;
-    }
-  }
+  contains(data) {}
 }
 
 module.exports = Node;
