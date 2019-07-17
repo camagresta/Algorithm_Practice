@@ -19,10 +19,6 @@ class Node {
   }
 
   insert(data) {
-    //if data is greater than the current node, check the current node's right
-    //if data is less than the current node, check the current node's left
-    //if the right or left is null upon checking, insert data there
-
     if (data < this.data && this.left) {
       this.left.insert(data);
     } else if (data < this.data) {
@@ -33,7 +29,20 @@ class Node {
       this.right = new Node(data);
     }
   }
-  contains(data) {}
+
+  contains(data) {
+    if (this.data === data) {
+      return this;
+    }
+
+    if (this.data < data && this.right) {
+      return this.right.contains(data);
+    } else if (this.data > data && this.left) {
+      return this.left.contains(data);
+    }
+
+    return null;
+  }
 }
 
 module.exports = Node;
